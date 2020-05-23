@@ -8,13 +8,17 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
+import com.pixelogic.pages.PHPTravelsLoginPage;
+import com.pixelogic.pages.PHPTravelsRegisterPage;
 import com.shaft.gui.browser.BrowserActions;
 import com.shaft.gui.browser.BrowserFactory;
 import com.shaft.tools.io.ExcelFileManager;
+import com.shaft.tools.io.ReportManager;
+import com.shaft.validation.Assertions;
+import com.shaft.validation.Assertions.AssertionComparisonType;
+import com.shaft.validation.Assertions.AssertionType;
 
 import io.qameta.allure.Description;
-import pixelogicPages.PHPTravelsLoginPage;
-import pixelogicPages.PHPTravelsRegisterPage;
 
 public class Pixelogic_Test {
     private ThreadLocal<WebDriver> driver = new ThreadLocal<>();
@@ -22,12 +26,18 @@ public class Pixelogic_Test {
 
     private String[] register;
     private String[] login;
+    private String[] result;
 
     @Test(description = "Register - Insert", groups = { "gui" })
     @Description("When I enter Register page, then all data should be saved successfully and a user should have an account")
     public void createNewAccount() {
 	new PHPTravelsRegisterPage(driver).navigate().inputRegisterFields(register).verifyRegisterFields(register)
 		.clickOnRegisterButton();
+	String ExpectedResult = new PHPTravelsRegisterPage(driver).checkExpectedName(result);
+	String ActualResult = new PHPTravelsRegisterPage(driver).checkTheNameOfRegisteredUser();
+	ReportManager.logDiscrete("Expected Result is " + ExpectedResult);
+	ReportManager.logDiscrete("Actual Result is " + ActualResult);
+	Assertions.assertEquals(ExpectedResult, ActualResult, AssertionComparisonType.CONTAINS, AssertionType.POSITIVE);
 
     }
 
@@ -35,6 +45,11 @@ public class Pixelogic_Test {
     @Description("When user registers with a new account , and login with the same account , then he should be able to login successfully")
     public void login() {
 	new PHPTravelsLoginPage(driver).navigate().login(login);
+	String ExpectedResult = new PHPTravelsRegisterPage(driver).checkExpectedName(result);
+	String ActualResult = new PHPTravelsRegisterPage(driver).checkTheNameOfRegisteredUser();
+	ReportManager.logDiscrete("Expected Result is " + ExpectedResult);
+	ReportManager.logDiscrete("Actual Result is " + ActualResult);
+	Assertions.assertEquals(ExpectedResult, ActualResult, AssertionComparisonType.CONTAINS, AssertionType.POSITIVE);
     }
 
     private String[] readRegisterTestData() {
@@ -60,6 +75,15 @@ public class Pixelogic_Test {
 	return Login.toArray(new String[0]);
     }
 
+    private String[] readResultTestData() {
+	ArrayList<String> result = new ArrayList<String>();
+	String colName = "Data1";
+	String sheetName = "Register";
+	result.add(pixelogic.get().getCellData(sheetName, "First Name", colName));
+	result.add(pixelogic.get().getCellData(sheetName, "Last Name", colName));
+	return result.toArray(new String[0]);
+    }
+
     @BeforeClass
     public void beforeClass() {
 	pixelogic.set(new ExcelFileManager(System.getProperty("testDataFolderPath") + "Pixelogic.xlsx"));
@@ -67,6 +91,7 @@ public class Pixelogic_Test {
 	// read test data
 	register = readRegisterTestData();
 	login = readLoginTestData();
+	result = readResultTestData();
 
     }
 

@@ -1,4 +1,4 @@
-package pixelogicPages;
+package com.pixelogic.pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -18,7 +18,6 @@ public class PHPTravelsLoginPage {
     // locators
     private By userName = By.name("username");
     private By password = By.name("password");
-    private By rememberMe_CheckBox = By.id("remember-me");
     private By loginButton = By.xpath("//button[text()='Login']");
 
     // constructor
@@ -32,13 +31,10 @@ public class PHPTravelsLoginPage {
 	return this;
     }
 
-    public PHPTravelsLoginPage login(String[] login) {
+    public void login(String[] login) {
 
 	ElementActions.type(driver, userName, login[0]);
 	ElementActions.typeSecure(driver, password, login[1]);
-	ElementActions.click(driver, rememberMe_CheckBox);
 	ElementActions.click(driver, loginButton);
-
-	return this;
     }
 }

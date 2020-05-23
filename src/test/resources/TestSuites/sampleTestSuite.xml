@@ -4,12 +4,7 @@
 	https://testng.org/doc/documentation-main.html#testng-xml -->
 
 <suite name="Sample Test Suite">
-	
-	<test name="API Test">
-		<packages>
-			<package name="tests.api.users" />
-		</packages>
-	</test>
+
 	<test name="GUI Test">
 		<classes>
 			<class name="tests.gui.pixelogicPages.Pixelogic_Test" />

@@ -1,4 +1,4 @@
-package pixelogicPages;
+package com.pixelogic.pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -95,15 +95,19 @@ public class PHPTravelsRegisterPage {
 	return this;
     }
 
-    public PHPTravelsRegisterPage clickOnRegisterButton() {
+    public void clickOnRegisterButton() {
 	ElementActions.click(driver, registerButton);
-	return this;
     }
 
     public String checkTheNameOfRegisteredUser() {
-	By registeredUserName = By.xpath("//h3[text() = 'Hi, " + firstName + " " + lastName + "']");
+	By registeredUserName = By.xpath("//h3[contains(@class,'text-align-left')]");
 	String registeredUserNameText = ElementActions.getText(driver, registeredUserName);
 	return registeredUserNameText;
+    }
+
+    public String checkExpectedName(String[] register) {
+	String ExpectedName = "Hi, " + "" + register[0] + " " + register[1] + "";
+	return ExpectedName;
     }
 
 }
