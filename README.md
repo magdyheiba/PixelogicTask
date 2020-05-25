@@ -1,31 +1,86 @@
-# using_SHAFT_ENGINE
-<img src="https://drive.google.com/uc?export=download&id=1VHD9VsVHDndMjSV-wTVtCXUPHZ9AryO7" alt="SHAFT_ENGINE" style="display:block; margin-left:auto; margin-right:auto;"/>
+# Pixelogic Assessment
 
-**using_SHAFT_ENGINE** is a sample project to showcase how to get started using [SHAFT_Engine](https://github.com/MohabMohie/SHAFT_ENGINE/), and how to use some of its rich features, while applying the best practices for Test Automation project design. For a full list of the Supported features that you can use or try out, please refer to this [Read Me](https://github.com/MohabMohie/SHAFT_ENGINE/blob/master/README.md) file.
 
-### Running your first sample test:
-1. Simply import this project to your eclipse (or favorite JAVA IDE).
-2. Watch this simple 5-minute live-demo:
-https://drive.google.com/file/d/1NxBpObvbBHdMjL4tl7PlpRNi7U9lMfW8/view
+[![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://travis-ci.org/joemccann/dillinger)
 
-### Creating your own project based on using_SHAFT_ENGINE:
-1. Make your own fork from the project <img src="https://drive.google.com/uc?export=download&id=1TIHfU4OamNjqEHFhasxw6tUw8YJwrItX" alt="using_SHAFT_ENGINE" style="display:block; margin-left:auto; margin-right:auto;"/>
-2. You can refer to this sample tutorial on how to import your new project into your workspace: https://tools.jboss.org/documentation/howto/git_import_projects.html#clone_uri
-3. After your project is successfully imported, you can explore the file structure, and add your own tests or test suites as needed.
+This a simple assessment for Pixelogic company
+
+•	Implement a test automation framework with an object-oriented design. 
+•	Implement an HTTP interceptor for the signUp API request and save the response in any way so it can be checked later by the user. 
+•	Implement customized reports including screenshots for failures. 
+•	Recover from Assertion failures and other exceptions by closing the browser window, terminating test execution, and generating the report accordingly.
+•	Nothing is hard coded in the scripts.
+
+
+### Tech
+
+This Task  uses a number of open source projects to work properly:
+
+* [JAVA](https://www.java.com/en/download/)
+* [SHAFT_ENGINE](https://github.com/MohabMohie/SHAFT_ENGINE)
+* [Selenium WebDriver](https://www.selenium.dev/documentation/en/)
+* [Rest Assured API ](http://rest-assured.io/) 
+* [Allure Report Framework](http://allure.qatools.ru/)
+* [Testng](https://testng.org/)
+
+And of course This assessment itself is open source with a [public repository]
+ on GitHub.
+ 
+### About the Task 
+SHAFT is the Selenium Hybrid Automation Framework for Testing, it is:
+- Test Automation Engine.
+- A source controlled Java 14 Maven project that is easily and regularly extended and enhanced with new features.
+- Provides an easily understandable and user-friendly syntax for writing simple, robust, maintainable, and extendable tests.
+- Provides support for Data-Driven, Keyword-Driven, Modular and Behavior-Driven tests.
+- Provides extensive, yet user-friendly reporting for test execution.
+Fully documented with standard JavaDocs.
+- Supports web apps on Chrome, Firefox, Edge, IE, and Safari.
+- Supports mobile apps (Native/Hybrid/Web).
+- Supports testing APIs.
+- Supports testing CLIs.
+- Supports testing Databases.
+- Supports AI powered Visual Validations using OpenCV and Applitools Eyes.
+- Supports test execution on Linux, Windows, Mac, Android, and iOS.
+- Supports remote, unattended, parallel, cloud, and dockerized test execution.
+- Can be easily integrated with Continuous Integration, and DevOps solutions.
+
+# This project integrates with:
+- TestNG
+- Selenium WebDriver
+- Appium
+- Rest Assured
+- Cucumber
+- Apache POI
+- WebDriver Manager
+- Allure Reporting
+- Selenium Grid
+- Zalenium (SauceLabs, BrowserStack, TestingBot, CrossBrowserTesting, LambdaTest)
+- Docker-Selenium
+- OpenCV
+- Applitools Eyes
+- Jenkins, GitHub Actions, or any CI/CD tool
+And of course This assessment itself is open source with a [public repository]
+ on GitHub.
+
+### Installation
+
+- This Assessment requires [JAVA](https://www.java.com/en/download/) v8+ to run.
+- Install the dependencies and devDependencies 
+- How to get started using [SHAFT_Engine](https://github.com/MohabMohie/SHAFT_ENGINE/)
+- You can refer to this sample tutorial on how to import your new project into your workspace: https://tools.jboss.org/documentation/howto/git_import_projects.html#clone_uri
+
+# Plugins
+
+This Assessment is currently working with [Testng](http://dl.bintray.com/testng-team/testng-eclipse-release/) plugin
+
+
+
 
 ### Important Notes:
 - Always use the latest version of SHAFT_Engine in your pom.xml file [![Maven Central](https://img.shields.io/maven-central/v/io.github.mohabmohie/SHAFT_ENGINE.svg?label=Maven%20Central)](https://search.maven.org/search?q=g:%22io.github.mohabmohie%22%20AND%20a:%22SHAFT_ENGINE%22)
-- Refer to the published SHAFT_Engine javadocs for detailed information on the available functions/classes/packages https://mohabmohie.github.io/SHAFT_ENGINE/
-- Refer to TestNG [https://testng.org/doc/documentation-main.html] and Allure Reporting [https://docs.qameta.io/allure/] documentation for using annotations
 
-### IntelliJ:
-- As of the latest version of SHAFT_Engine '4.0.20200220-beta' you can now use IntelliJ in addition to Eclipse to manage your test project.
-- After checking out the project to your IntelliJ you may face an exception that prevents tests execution.
-- In that case you need to add the SHAFT_Engine custom listeners to your TestNG execution template, as IntelliJ doesn't natively inherit this list from the pom.xml file.
-- Here are the steps you need to follow:
-  - This is the error that you may see <img src="https://drive.google.com/uc?export=download&id=1ZOyhYrTczLDVSO7wJzKoEghiYm9yDrhM" alt="1 of 6" style="display:block; margin-left:auto; margin-right:auto;"/>
-  - In that case you need to Edit your Run/Debug configuration <img src="https://drive.google.com/uc?export=download&id=1m0gvqFMz0YqTaM28DKyZUiCUHWRpwOdC" alt="2 of 6" style="display:block; margin-left:auto; margin-right:auto;"/>
-  - Navigate to Templates > TestNG > Configuration > Listeners <img src="https://drive.google.com/uc?export=download&id=1-WqbA2EPvMXX55Dr7pnQLUtnZ4OWwfAN" alt="3 of 6" style="display:block; margin-left:auto; margin-right:auto;"/>
-  - Type com.shaft.tools.* into your search box to find the required listeners and add them one by one <img src="https://drive.google.com/uc?export=download&id=17lykJyCaCTYgnmZY0NBzfWxWLQGzxOyU" alt="4 of 6" style="display:block; margin-left:auto; margin-right:auto;"/>
-  - This is the desired output for your listeners configuration <img src="https://drive.google.com/uc?export=download&id=1h047bFULAzItLr2yJ_LNnIToJjRttUDX" alt="5 of 6" style="display:block; margin-left:auto; margin-right:auto;"/>
-  - Success! <img src="https://drive.google.com/uc?export=download&id=1TiFuFW2s2hozOtkM9t-ZBWbOEdQssV6g" alt="6 of 6" style="display:block; margin-left:auto; margin-right:auto;"/>
+License
+----
+
+[MIT](https://opensource.org/licenses/MIT/)
+**Free Software**
