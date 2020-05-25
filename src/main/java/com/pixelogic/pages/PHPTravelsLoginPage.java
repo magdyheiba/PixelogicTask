@@ -11,10 +11,6 @@ public class PHPTravelsLoginPage {
     private WebDriver driver;
     private static String url = System.getProperty("gui.baseURL") + "login";
 
-    public static String getUrl() {
-	return url;
-    }
-
     // locators
     private By userName = By.name("username");
     private By password = By.name("password");
@@ -31,8 +27,12 @@ public class PHPTravelsLoginPage {
 	return this;
     }
 
-    public void login(String[] login) {
+    public static String getUrl() {
+	return url;
+    }
 
+    // login method
+    public void login(String[] login) {
 	ElementActions.type(driver, userName, login[0]);
 	ElementActions.typeSecure(driver, password, login[1]);
 	ElementActions.click(driver, loginButton);

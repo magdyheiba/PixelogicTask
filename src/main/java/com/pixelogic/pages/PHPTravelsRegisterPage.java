@@ -14,10 +14,6 @@ public class PHPTravelsRegisterPage {
     private WebDriver driver;
     private static String url = System.getProperty("gui.baseURL") + "register";
 
-    public static String getUrl() {
-	return url;
-    }
-
     // locators
     private By firstName = By.name("firstname");
     private By lastName = By.name("lastname");
@@ -33,11 +29,17 @@ public class PHPTravelsRegisterPage {
     }
 
     // actions
+    public static String getUrl() {
+	return url;
+    }
+
+    // Navigate to the URL method
     public PHPTravelsRegisterPage navigate() {
 	BrowserActions.navigateToURL(driver, url);
 	return this;
     }
 
+    // fill the register fields method
     public PHPTravelsRegisterPage inputRegisterFields(String[] register) {
 	ElementActions.type(driver, firstName, register[0]);
 	ElementActions.type(driver, lastName, register[1]);
@@ -48,6 +50,7 @@ public class PHPTravelsRegisterPage {
 	return this;
     }
 
+    // Verify the register fields method
     public PHPTravelsRegisterPage verifyRegisterFields(String[] register) {
 	if (!register[0].isEmpty()) {
 	    Verifications.verifyElementAttribute(driver, firstName, "text", register[0]);
@@ -95,16 +98,19 @@ public class PHPTravelsRegisterPage {
 	return this;
     }
 
+    // click on register button method
     public void clickOnRegisterButton() {
 	ElementActions.click(driver, registerButton);
     }
 
+    // Get the logged in user name method from the web page
     public String checkTheNameOfRegisteredUser() {
 	By registeredUserName = By.xpath("//h3[contains(@class,'text-align-left')]");
 	String registeredUserNameText = ElementActions.getText(driver, registeredUserName);
 	return registeredUserNameText;
     }
 
+    // Get the logged in user name method from the excel sheet
     public String checkExpectedName(String[] register) {
 	String ExpectedName = "Hi, " + "" + register[0] + " " + register[1] + "";
 	return ExpectedName;

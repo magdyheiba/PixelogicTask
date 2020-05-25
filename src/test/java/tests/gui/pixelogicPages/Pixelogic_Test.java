@@ -28,6 +28,7 @@ public class Pixelogic_Test {
     private String[] login;
     private String[] result;
 
+    // Test Cases
     @Test(description = "Register - Insert", groups = { "gui" })
     @Description("When I enter Register page, then all data should be saved successfully and a user should have an account")
     public void createNewAccount() {
@@ -42,7 +43,7 @@ public class Pixelogic_Test {
     }
 
     @Test(description = "Login - Insert", dependsOnMethods = { "createNewAccount" }, groups = { "gui" })
-    @Description("When user registers with a new account , and login with the same account , then he should be able to login successfully")
+    @Description("When user registers with a new account , and login with the same credentials , then he should be able to login successfully")
     public void login() {
 	new PHPTravelsLoginPage(driver).navigate().login(login);
 	String ExpectedResult = new PHPTravelsRegisterPage(driver).checkExpectedName(result);
@@ -52,6 +53,7 @@ public class Pixelogic_Test {
 	Assertions.assertEquals(ExpectedResult, ActualResult, AssertionComparisonType.CONTAINS, AssertionType.POSITIVE);
     }
 
+    // Read from Excel Methods
     private String[] readRegisterTestData() {
 	ArrayList<String> Register = new ArrayList<String>();
 	String colName = "Data1";
