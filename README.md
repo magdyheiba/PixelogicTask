@@ -78,6 +78,7 @@ This Assessment is currently working with [Testng](http://dl.bintray.com/testng-
 
 ### Important Notes:
 - Always use the latest version of SHAFT_Engine in your pom.xml file [![Maven Central](https://img.shields.io/maven-central/v/io.github.mohabmohie/SHAFT_ENGINE.svg?label=Maven%20Central)](https://search.maven.org/search?q=g:%22io.github.mohabmohie%22%20AND%20a:%22SHAFT_ENGINE%22)
+- You can check the result of the the test by running generate_allure_report.bat
 
 License
 ----
